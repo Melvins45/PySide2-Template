@@ -7,6 +7,16 @@ from PySide2.QtWidgets import *
 import sys, os, re
 import constants as gc
 import helpers as gf
+import sys
+import os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS2
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 actualPage = "template"
 
@@ -18,7 +28,7 @@ class ClassWindow(QMainWindow):
             self.setObjectName(u"Template")
         self.resize(678, 497)
         icon = QIcon()
-        icon.addFile(u"img/template_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(resource_path(u"img\\template_icon.png"), QSize(), QIcon.Normal, QIcon.Off)
         self.setWindowIcon(icon)
         self.centralwidget = QWidget(self)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -47,7 +57,7 @@ class ClassWindow(QMainWindow):
     
 
 if __name__ == "__main__":
-    styleSheetFile = QFile( "style.qss" )
+    styleSheetFile = QFile( resource_path("style.qss") )
     styleSheetFile.open(QIODevice.ReadOnly)
     styleSheet = QTextStream(styleSheetFile).readAll()
     form = QApplication(sys.argv)
@@ -66,16 +76,16 @@ if __name__ == "__main__":
         window.setWindowTitle( QCoreApplication.translate("CallmeBack", gc.PAGES_TITLES[page], None) )
         window.stackedWidget.setCurrentIndex(gc.PAGES_INDEX[page])
         #activePage(page)
-        
+    
     # Create pages and load ui files in it
-    window.__setattr__("template", gf.load_ui("template"))
+    window.__setattr__("template", gf.load_py("template"))
     window.stackedWidget.addWidget(window.template)
-    window.template.template_1.clicked.connect(lambda : goToPage("template"))
-    window.template.template_2.clicked.connect(lambda : goToPage("template_2"))
-    window.__setattr__("template_2", gf.load_ui("template_2"))
+    window.template.m_ui.template_1.clicked.connect(lambda : goToPage("template"))
+    window.template.m_ui.template_2.clicked.connect(lambda : goToPage("template_2"))
+    window.__setattr__("template_2", gf.load_py("template_2"))
     window.stackedWidget.addWidget(window.template_2)
-    window.template_2.template_1.clicked.connect(lambda : goToPage("template"))
-    window.template_2.template_2.clicked.connect(lambda : goToPage("template_2"))
+    window.template_2.m_ui.template_1.clicked.connect(lambda : goToPage("template"))
+    window.template_2.m_ui.template_2.clicked.connect(lambda : goToPage("template_2"))
     
     window.show()
     form.exec_()

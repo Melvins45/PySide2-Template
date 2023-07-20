@@ -14,8 +14,8 @@
    <string>Template 2</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>img/template_icon.png</normaloff>img/template_icon.png</iconset>
+   <iconset resource="img/icon.qrc">
+    <normaloff>:/newPrefix/template_icon.png</normaloff>:/newPrefix/template_icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,5">
    <property name="spacing">
@@ -49,8 +49,8 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(img/template_icon.png);
-border-radius: 12px;
+         <string notr="true">border-radius: 12px;
+border-image: url(img/template_icon.png);
 </string>
         </property>
         <property name="text">
@@ -171,6 +171,7 @@ border: none;</string>
  </widget>
  <resources>
   <include location="img/icon.qrc"/>
+  <include location="icon_2.qrc"/>
  </resources>
  <connections/>
 </ui>

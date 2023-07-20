@@ -19,6 +19,9 @@ class Ui_Termplate(object):
         if not Termplate.objectName():
             Termplate.setObjectName(u"Termplate")
         Termplate.resize(690, 496)
+        icon = QIcon()
+        icon.addFile(u":/newPrefix/template_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        Termplate.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(Termplate)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")

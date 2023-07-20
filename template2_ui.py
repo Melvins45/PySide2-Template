@@ -13,6 +13,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 import icon_rc
+import icon_2_rc
 
 class Ui_Template(object):
     def setupUi(self, Template):
@@ -20,7 +21,7 @@ class Ui_Template(object):
             Template.setObjectName(u"Template")
         Template.resize(690, 496)
         icon = QIcon()
-        icon.addFile(u"img/template_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/newPrefix/template_icon.png", QSize(), QIcon.Normal, QIcon.Off)
         Template.setWindowIcon(icon)
         self.verticalLayout = QVBoxLayout(Template)
         self.verticalLayout.setSpacing(0)
@@ -39,8 +40,8 @@ class Ui_Template(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setStyleSheet(u"border-image: url(img/template_icon.png);\n"
-"border-radius: 12px;\n"
+        self.pushButton.setStyleSheet(u"border-radius: 12px;\n"
+"border-image: url(img/template_icon.png);\n"
 "")
 
         self.horizontalLayout_3.addWidget(self.pushButton)

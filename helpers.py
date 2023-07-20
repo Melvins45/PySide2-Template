@@ -25,3 +25,20 @@ def load_ui(file_name:str) -> QWidget:
         print(loader.errorString())
         sys.exit(-1)
     return window  
+
+def load_py(file_name:str) -> QWidget:
+    """Load python compiled ui file in QWidget
+
+    Args:
+        file_name (str): The name of the compiled python file from ui file
+
+    Returns:
+        QWidget: The resulted QWidget
+    """    
+    class _Window(QWidget):
+        def __init__(self, parent=None):
+            super(_Window, self).__init__(parent)
+
+            self.m_ui = gc.PAGES_UI[file_name]
+            self.m_ui.setupUi(self)
+    return _Window()
