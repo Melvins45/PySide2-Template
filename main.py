@@ -18,14 +18,14 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
-actualPage = "template"
+actualPage = list(gc.PAGES_TITLES.keys())[0]
 
 class ClassWindow(QMainWindow):
     resized = Signal( QResizeEvent )
     def __init__(self, parent = None) -> None:
         super().__init__(parent)
         if self.objectName():
-            self.setObjectName(u"Template")
+            self.setObjectName(list(gc.PAGES_TITLES.values())[0])
         self.resize(678, 497)
         icon = QIcon()
         icon.addFile(resource_path(u"img\\template_icon.png"), QSize(), QIcon.Normal, QIcon.Off)
@@ -63,8 +63,14 @@ if __name__ == "__main__":
     form = QApplication(sys.argv)
     form.setStyleSheet(styleSheet)
     window = ClassWindow() #gf.load_ui("window")
-    window.setWindowTitle( QCoreApplication.translate("Template", "Template", None) )
+    #window.setWindowTitle( QCoreApplication.translate("Template", "Template", None) )
     
+    def activePage(page: str) :
+        match page :
+            case "template" :
+                print(window.__getattribute__(page).m_ui.plainTextEdit.toPlainText())
+            case _ :
+                print(window.__getattribute__(page).m_ui.plainTextEdit.toPlainText())
     
     def goToPage(page : str) :
         """Go to the specified page
@@ -75,7 +81,7 @@ if __name__ == "__main__":
         actualPage = page
         window.setWindowTitle( QCoreApplication.translate("CallmeBack", gc.PAGES_TITLES[page], None) )
         window.stackedWidget.setCurrentIndex(gc.PAGES_INDEX[page])
-        #activePage(page)
+        activePage(page)
     
     # Create pages and load ui files in it
     window.__setattr__("template", gf.load_py("template"))
