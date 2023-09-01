@@ -48,8 +48,20 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>65</width>
+          <height>65</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>84</width>
+          <height>84</height>
+         </size>
+        </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(img/template_icon.png);
+         <string notr="true">border-image: url(:/newPrefix/template_icon.png);
 border-radius: 12px;
 </string>
         </property>
@@ -81,7 +93,7 @@ border-radius: 12px;
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(0, 0, 0);
+           <string notr="true">border: none;
 color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
@@ -97,7 +109,7 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(0, 0, 0);
+           <string notr="true">border: none; 
 color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
