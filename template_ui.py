@@ -39,7 +39,9 @@ class Ui_Termplate(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setStyleSheet(u"border-image: url(img/template_icon.png);\n"
+        self.pushButton.setMinimumSize(QSize(65, 65))
+        self.pushButton.setMaximumSize(QSize(84, 84))
+        self.pushButton.setStyleSheet(u"border-image: url(:/newPrefix/template_icon.png);\n"
 "border-radius: 12px;\n"
 "")
 
@@ -56,7 +58,7 @@ class Ui_Termplate(object):
         font = QFont()
         font.setPointSize(14)
         self.template_1.setFont(font)
-        self.template_1.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+        self.template_1.setStyleSheet(u"border: none;\n"
 "color: rgb(255, 255, 255);")
 
         self.horizontalLayout.addWidget(self.template_1)
@@ -64,7 +66,7 @@ class Ui_Termplate(object):
         self.template_2 = QPushButton(self.header)
         self.template_2.setObjectName(u"template_2")
         self.template_2.setFont(font)
-        self.template_2.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+        self.template_2.setStyleSheet(u"border: none; \n"
 "color: rgb(255, 255, 255);")
 
         self.horizontalLayout.addWidget(self.template_2)
